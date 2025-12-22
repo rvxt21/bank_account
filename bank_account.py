@@ -38,13 +38,3 @@ class BankAccount:
     def validate_sufficient_balance(self, amount: int):
         if amount > self.balance:
             raise InsufficientFundsError("Not enough money")
-
-
-my_bank_account = BankAccount("Anastasiia", 100)
-print(my_bank_account.current_balance())
-my_bank_account.deposit(1000)
-print(my_bank_account.current_balance())
-my_bank_account.withdraw(50)
-print(my_bank_account.current_balance())
-my_bank_account.withdraw(-50)
-print(my_bank_account.current_balance())
