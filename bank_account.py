@@ -14,19 +14,13 @@ class BankAccount:
         self.balance: int = balance
 
     def deposit(self, amount: int):
-        try:
-            self.validate_negative_amount(amount)
-            self.balance += amount
-        except NegativeAmountError:
-            print("Not possible to process negative amount")
+        self.validate_negative_amount(amount)
+        self.balance += amount
 
     def withdraw(self, amount: int):
-        try:
-            self.validate_negative_amount(amount)
-            self.validate_sufficient_balance(amount)
-            self.balance -= amount
-        except (NegativeAmountError, InsufficientFundsError) as e:
-            print(f"Error transaction: {e}")
+        self.validate_negative_amount(amount)
+        self.validate_sufficient_balance(amount)
+        self.balance -= amount
 
     def current_balance(self):
         return self.balance
